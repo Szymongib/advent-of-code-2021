@@ -4,10 +4,7 @@ use std::{fs, str::FromStr};
 
 pub fn read_lines_raw<P: AsRef<Path>>(file_name: P) -> Vec<String> {
     let data = fs::read_to_string(file_name).expect("read data from file");
-
-    let data: Vec<String> = data.split("\n").map(|s| s.to_string()).collect();
-
-    println!("Data len: {}", data.len());
+    let data: Vec<String> = data.split('\n').map(|s| s.to_string()).collect();
 
     data
 }
@@ -18,7 +15,7 @@ where
 {
     let data = fs::read_to_string(file_name).expect("read data from file");
 
-    data.split("\n")
+    data.split('\n')
         .into_iter()
         .map(|s| s.parse().expect("cannot convert from &str to T"))
         .collect()
