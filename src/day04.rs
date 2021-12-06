@@ -8,10 +8,10 @@ struct Board {
 impl Board {
     fn new_from_raw(data: &str) -> Board {
         let board: Vec<Vec<(u32, bool)>> = data
-            .split("\n")
+            .split('\n')
             .map(|line| {
                 line.split(' ')
-                    .filter(|elem| *elem != " " && *elem != "")
+                    .filter(|elem| *elem != " " && !elem.is_empty())
                     .map(|num| (num.parse().expect("failed to parse board element"), false))
                     .collect()
             })

@@ -63,7 +63,7 @@ fn filter_by_bit_criteria(mut nums: Vec<usize>, word_len: usize, default: usize)
             .collect();
     }
 
-    return nums[0];
+    nums[0]
 }
 
 fn count_ones_at_pos(nums: &[usize], shift: usize) -> usize {
