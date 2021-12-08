@@ -9,6 +9,7 @@ mod day04;
 mod day05;
 mod day06;
 mod day07;
+mod day08;
 mod util;
 
 pub fn run_task<T, O, P>(func: T, day: u16, task: u16, input_file: P)
@@ -51,6 +52,8 @@ fn main() {
         ["6", "2"] => run_task(day06::day_6_2, 6, 2, "inputs/6.1.txt"),
         ["7", "1"] => run_task(day07::day_7_1, 7, 1, "inputs/7.1.txt"),
         ["7", "2"] => run_task(day07::day_7_2, 7, 2, "inputs/7.1.txt"),
+        ["8", "1"] => run_task(day08::day_8_1, 8, 1, "inputs/8.txt"),
+        ["8", "2"] => run_task(day08::day_8_2, 8, 2, "inputs/8.txt"),
         [day, task] => {
             println!("Invalid arguments, day: {}, task: {}", day, task);
             process::exit(1)
@@ -67,7 +70,7 @@ mod test {
     use crate::day05::{day_5_1, day_5_2};
     use crate::day06::{day_6_1, day_6_2};
     use crate::day07::{day_7_1, day_7_2};
-    use std::fmt::Display;
+    use crate::day08::{day_8_1, day_8_2};
     use std::fs;
     use std::path::Path;
     use std::str::FromStr;
@@ -148,5 +151,7 @@ mod test {
             day_7_2(in_path("7.1.txt")),
             read_output(out_path("7.2.txt"))
         );
+        assert_eq!(day_8_1(in_path("8.txt")), read_output(out_path("8.1.txt")));
+        assert_eq!(day_8_2(in_path("8.txt")), read_output(out_path("8.2.txt")));
     }
 }

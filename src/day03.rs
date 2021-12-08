@@ -41,8 +41,8 @@ pub fn day_3_2<P: AsRef<Path>>(input_file: P) -> usize {
         .map(|v| usize::from_str_radix(v, 2).expect("failed to parse from binary"))
         .collect();
 
-    let mut ox_gen_rating = filter_by_bit_criteria(nums.clone(), word_len, 1);
-    let mut co2_scrub_rating = filter_by_bit_criteria(nums.clone(), word_len, 0);
+    let ox_gen_rating = filter_by_bit_criteria(nums.clone(), word_len, 1);
+    let co2_scrub_rating = filter_by_bit_criteria(nums.clone(), word_len, 0);
 
     ox_gen_rating * co2_scrub_rating
 }
