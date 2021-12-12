@@ -14,12 +14,12 @@ pub fn day_11_1<P: AsRef<Path>>(input_file: P) -> usize {
 pub fn day_11_2<P: AsRef<Path>>(input_file: P) -> usize {
     let mut octo_light = read_octo_energy(input_file);
 
-    let octo_count = octo_light.energy.len()*octo_light.energy[0].len();
+    let octo_count = octo_light.energy.len() * octo_light.energy[0].len();
 
     let mut rounds = 0;
     while octo_light.step_flashes < octo_count {
         octo_light.start_step();
-        rounds+=1;
+        rounds += 1;
     }
     rounds
 }
@@ -44,7 +44,11 @@ struct OctoLight {
 
 impl OctoLight {
     fn new(energy: Vec<Vec<(u32, bool)>>) -> OctoLight {
-        OctoLight{energy, total_flashes: 0, step_flashes: 0}
+        OctoLight {
+            energy,
+            total_flashes: 0,
+            step_flashes: 0,
+        }
     }
 
     fn start_step(&mut self) {
@@ -104,7 +108,11 @@ impl OctoLight {
     }
 }
 
-fn get_neighbour_pos_with_diagonal(r: usize, c: usize, matrix: &[Vec<(u32, bool)>]) -> Vec<(usize, usize)> {
+fn get_neighbour_pos_with_diagonal(
+    r: usize,
+    c: usize,
+    matrix: &[Vec<(u32, bool)>],
+) -> Vec<(usize, usize)> {
     let mut neighbours = Vec::with_capacity(4);
 
     if r > 0 {
