@@ -149,7 +149,7 @@ fn truncate_value(value: usize) -> usize {
 
 #[cfg(test)]
 mod test {
-    use crate::day15::{day_15_1, day_15_2, transform_x5};
+    use crate::day15::{day_15_1, day_15_2};
     use crate::util::temp_file_with_content;
 
     const TEST_DATA: &str = "1163751742
@@ -162,16 +162,6 @@ mod test {
 3125421639
 1293138521
 2311944581";
-
-    fn read(s: &str) -> Vec<Vec<usize>> {
-        s.lines()
-            .map(|s| {
-                s.chars()
-                    .map(|c| c.to_digit(10).expect("failed to parse to digit") as usize)
-                    .collect()
-            })
-            .collect()
-    }
 
     #[test]
     fn test() {
