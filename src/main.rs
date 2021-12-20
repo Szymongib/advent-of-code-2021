@@ -20,6 +20,7 @@ mod day15;
 mod day16;
 mod day17;
 mod day18;
+mod day19;
 mod util;
 
 pub fn run_task<T, O, P>(func: T, day: u16, task: u16, input_file: P)
@@ -84,6 +85,8 @@ fn main() {
         ["17", "2"] => run_task(day17::day_17_2, 17, 2, "inputs/17.txt"),
         ["18", "1"] => run_task(day18::day_18_1, 18, 1, "inputs/18.txt"),
         ["18", "2"] => run_task(day18::day_18_2, 18, 2, "inputs/18.txt"),
+        ["19", "1"] => run_task(day19::day_19_1, 19, 1, "inputs/19.txt"),
+        ["19", "2"] => run_task(day19::day_19_2, 19, 2, "inputs/19.txt"),
         [day, task] => {
             println!("Invalid arguments, day: {}, task: {}", day, task);
             process::exit(1)
@@ -111,6 +114,7 @@ mod test {
     use crate::day16::{day_16_1, day_16_2};
     use crate::day17::{day_17_1, day_17_2};
     use crate::day18::{day_18_1, day_18_2};
+    use crate::day19::{day_19_1, day_19_2};
     use std::fs;
     use std::path::Path;
     use std::str::FromStr;
@@ -266,6 +270,17 @@ mod test {
         assert_eq!(
             day_18_2(in_path("18.txt")),
             read_output(out_path("18.2.txt"))
+        );
+        // Those take too long when not running --release
+        #[cfg(not(debug_assertions))]
+        assert_eq!(
+            day_19_1(in_path("19.txt")),
+            read_output(out_path("19.1.txt"))
+        );
+        #[cfg(not(debug_assertions))]
+        assert_eq!(
+            day_19_2(in_path("19.txt")),
+            read_output(out_path("19.2.txt"))
         );
     }
 }
