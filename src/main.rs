@@ -298,5 +298,13 @@ mod test {
             day_20_2(in_path("20.txt")),
             read_output(out_path("20.2.txt"))
         );
+        assert_eq!(
+            day_21_1(in_path("21.txt")),
+            read_output(out_path("21.1.txt"))
+        );
+        assert_eq!(
+            day_21_2(in_path("21.txt")),
+            read_output(out_path("21.2.txt"))
+        );
     }
 }
