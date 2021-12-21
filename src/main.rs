@@ -22,6 +22,7 @@ mod day17;
 mod day18;
 mod day19;
 mod day20;
+mod day21;
 mod util;
 
 pub fn run_task<T, O, P>(func: T, day: u16, task: u16, input_file: P)
@@ -90,6 +91,8 @@ fn main() {
         ["19", "2"] => run_task(day19::day_19_2, 19, 2, "inputs/19.txt"),
         ["20", "1"] => run_task(day20::day_20_1, 20, 1, "inputs/20.txt"),
         ["20", "2"] => run_task(day20::day_20_2, 20, 2, "inputs/20.txt"),
+        ["21", "1"] => run_task(day21::day_21_1, 21, 1, "inputs/21.txt"),
+        ["21", "2"] => run_task(day21::day_21_2, 21, 2, "inputs/21.txt"),
         [day, task] => {
             println!("Invalid arguments, day: {}, task: {}", day, task);
             process::exit(1)
@@ -119,6 +122,7 @@ mod test {
     use crate::day18::{day_18_1, day_18_2};
     use crate::day19::{day_19_1, day_19_2};
     use crate::day20::{day_20_1, day_20_2};
+    use crate::day21::{day_21_1, day_21_2};
     use std::fs;
     use std::path::Path;
     use std::str::FromStr;
