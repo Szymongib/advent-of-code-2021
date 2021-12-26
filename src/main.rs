@@ -24,6 +24,9 @@ mod day19;
 mod day20;
 mod day21;
 mod day22;
+mod day23;
+mod day24;
+mod day25;
 mod util;
 
 pub fn run_task<T, O, P>(func: T, day: u16, task: u16, input_file: P)
@@ -96,6 +99,12 @@ fn main() {
         ["21", "2"] => run_task(day21::day_21_2, 21, 2, "inputs/21.txt"),
         ["22", "1"] => run_task(day22::day_22_1, 22, 1, "inputs/22.txt"),
         ["22", "2"] => run_task(day22::day_22_2, 22, 2, "inputs/22.txt"),
+        ["23", "1"] => run_task(day23::day_23_1, 23, 1, "inputs/23.txt"),
+        ["23", "2"] => run_task(day23::day_23_2, 23, 2, "inputs/23.txt"),
+        ["24", "1"] => run_task(day24::day_24_1, 24, 1, "inputs/24.txt"),
+        ["24", "2"] => run_task(day24::day_24_2, 24, 2, "inputs/24.txt"),
+        ["25", "1"] => run_task(day25::day_25_1, 25, 1, "inputs/25.txt"),
+        ["25", "2"] => run_task(day25::day_25_2, 25, 2, "inputs/25.txt"),
         [day, task] => {
             println!("Invalid arguments, day: {}, task: {}", day, task);
             process::exit(1)
@@ -127,6 +136,9 @@ mod test {
     use crate::day20::{day_20_1, day_20_2};
     use crate::day21::{day_21_1, day_21_2};
     use crate::day22::{day_22_1, day_22_2};
+    use crate::day23::{day_23_1, day_23_2};
+    use crate::day24::{day_24_1, day_24_2};
+    use crate::day25::day_25_1;
     use std::fs;
     use std::path::Path;
     use std::str::FromStr;
@@ -317,6 +329,26 @@ mod test {
         assert_eq!(
             day_22_2(in_path("22.txt")),
             read_output(out_path("22.2.txt"))
+        );
+        assert_eq!(
+            day_23_1(in_path("23.txt")),
+            read_output(out_path("23.1.txt"))
+        );
+        assert_eq!(
+            day_23_2(in_path("23.txt")),
+            read_output(out_path("23.2.txt"))
+        );
+        assert_eq!(
+            day_24_1(in_path("24.txt")),
+            read_output(out_path("24.1.txt"))
+        );
+        assert_eq!(
+            day_24_2(in_path("24.txt")),
+            read_output(out_path("24.2.txt"))
+        );
+        assert_eq!(
+            day_25_1(in_path("25.txt")),
+            read_output(out_path("25.1.txt"))
         );
     }
 }
